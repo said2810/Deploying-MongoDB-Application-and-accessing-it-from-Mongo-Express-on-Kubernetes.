@@ -5,8 +5,8 @@
 # Mongo Express
 Web-based MongoDB admin interface written with Node.js, Express and Bootstrap3
 
-# Features
-*Connect to multiple databases
+# Features #
+Connect to multiple databases
 View/add/delete databases
 View/add/rename/delete collections
 View/add/update/delete documents
