@@ -12,11 +12,11 @@ Kubernetes is open-source-container-orchestration system for automatating comput
 * Cluster:
 
 A Kubernetes cluster is a set of nodes that run containerized applications. Containerized applications packages an app with its dependences and some necessary services. Each cluster also has a master (control plane) that manages the nodes and pods (more on pods below) of the cluster Kubernetes clustes allow containers to run across multiple machines and environments: virtual, phyical, cloud-based, and on-premises.
-<br>
+
 
 * Node:
 
-A Node is single machine in a cluster. A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine, depending on the cluster. Each Node is managed by the Master.
+> A Node is single machine in a cluster. A Node is a worker machine in Kubernetes and may be either a virtual or a physical machine, depending on the cluster. Each Node is managed by the Master.
 
 * Pod:
 
@@ -42,4 +42,31 @@ Master Node controls the state of the cluster. The master node is the origin for
 * Database blacklist/whitelist
 * Custom CA and CA validation disabling
 * Supports replica sets
+
+
+# General Concepts
+* A Pod is the smallest execution unit in Kubernetes, and an abstraction over containers. A container is a lightweight software that contains all the necessary tools, libraries and code to run an application.
+
+  * kubectl exec -it <pod_name> -- /bin/bash to get a bash shell in the container.
+  * kubectl logs <pod_name> to show information logged by a pod.
+* A Deployment is a resource to describe how a ReplicaSet and Pod should behave.
+
+  * kubectl create deploy <deployment_name> --image=<image_name> to create a basic deployment with minimal configurations.
+  * kubectl edit deploy <deployment_name> to edit the configuration file of a deployment.
+  * kubectl delete deploy <deployment_name> to delete a deployment.
+  
+* A ReplicaSet aims to maintain a stable set of Pods running at any given time. The number of Pods maintained is determined in the configuration file of a deployment.
+
+* A Service exposes an application running on a set of Pods as a network service.
+
+* A ConfigMap is used to store non-sensitive data in key-value pairs, and can be consumed as environment variables, command-line arguments, or as configuration files.
+
+* A Secret is similar to a ConfigMap, but more towards storing sensitive data, such as passwords, OAuth tokens, and ssh keys.
+
+  * echo -n '<password>' | base64 to generate a base64 encoded string to be used as password in Secret, though a better hashing algorithm should be used.
+
+* A Namespace is akin to a virtual cluster to organize resources between multiple teams, versions or environments.
+   * kubectl create namespace <name> to create a namespace.
+
+* An Ingress manages external access to services in a cluster. It provides load balancing, SSL termination and name-based virtual hosting. An Ingress consists of an        Ingress Controller and Ingress Resource. An Ingress Controller reads information from an Ingress Resource then evaluates all the rules and manages redirections.
 
