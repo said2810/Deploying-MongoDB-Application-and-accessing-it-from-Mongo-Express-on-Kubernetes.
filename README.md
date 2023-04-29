@@ -109,7 +109,8 @@ Master Node controls the state of the cluster. The master node is the origin for
    6. kubectl delete -f mongo-express.yml to delete the Service and Deployment.
  
 # To open your Application
- > kubectl get svc mongoexpress-service -n sa3iid-namespace >>> to get the ExternalIP of service
+ to get the ExternalIP of service:
+ > kubectl get svc mongoexpress-service -n sa3iid-namespace
  
 * open the browser on your local machine and type: http://ExternalIP-service:300000
 
