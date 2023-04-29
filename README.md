@@ -103,7 +103,7 @@ Master Node controls the state of the cluster. The master node is the origin for
    5. kubectl delete -f sa3iid-configmap.yml to delete the Configmap.
    5. kubectl get cm -n mongodb-namespace to list all Configmaps.
  
-6. Create another Deployment and Service. The Deployment will contain a >**_Mongo-Express_** Pod, which is a web-based interface to manage MongoDB databases. It will use the username and password from Secret, and the database url from ConfigMap to access the MongoDB internal Service defined in 4. The Service defined in 6 could be either an external or internal service. If it's an external service, it would allow external request to communicate with the Pods in 6. However, since an Ingress will be defined in 7, this Service will be an internal service, which would define the policy to access the Mongo-Express Pod.
+6. Create another Deployment and Service. The Deployment will contain a >**_Mongo-Express_** Pod, which is a web-based interface to manage MongoDB databases. It will use the username and password from Secret, and the database url from ConfigMap to access the MongoDB internal Service defined in 4. The Service defined in 6 could be either an external or internal service. If it's an external service, it would allow external request to communicate with the Pods in 6., this Service will be an internal service, which would define the policy to access the Mongo-Express Pod.
 
    6. kubectl apply -f mongoexpress.yml to create the Service called mongoexpress-service, and Deployment called mongo-express.
    6. kubectl delete -f mongo-express.yml to delete the Service and Deployment.
