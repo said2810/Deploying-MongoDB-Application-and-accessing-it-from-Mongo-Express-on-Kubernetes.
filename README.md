@@ -6,6 +6,7 @@
 Web-based MongoDB admin interface written with Node.js, Express and Bootstrap3
 
 # Features #
+Markup : * Bullet list
 Connect to multiple databases
 View/add/delete databases
 View/add/rename/delete collections
