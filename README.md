@@ -75,38 +75,38 @@ Master Node controls the state of the cluster. The master node is the origin for
 # Getting Started
 1. At first you can show your nodes to ensure that your cluster is ready.
  
-    1. kubectl get no to list all worker nodes.
+    * kubectl get no to list all worker nodes.
 2. Create a Namespace, which is similar to a virtual cluster. 
 
-   2. kubectl apply -f sa3iid-namespace.yml to create the Namespace called mongodb-namespace.
-   2. kubectl delete -f sa3iid-namespace.yml to delete the Namespace.
-   2. kubectl get ns to list all Namespaces.
+   * kubectl apply -f sa3iid-namespace.yml to create the Namespace called mongodb-namespace.
+   * kubectl delete -f sa3iid-namespace.yml to delete the Namespace.
+   * kubectl get ns to list all Namespaces.
 3. Create a Secret, which is used to store sensitive information. The Secret will contain the username and password for MongoDB.
 
-   3. kubectl apply -f sa3iid-secret.yml to create the Secret called mongodb-secret.
-   3. kubectl delete -f sa3iid-secret.yml to delete the Secret.
-   3. kubectl get secret -n sa3iid-namespace to list all Secrets.
+   * kubectl apply -f sa3iid-secret.yml to create the Secret called mongodb-secret.
+   * kubectl delete -f sa3iid-secret.yml to delete the Secret.
+   * kubectl get secret -n sa3iid-namespace to list all Secrets.
  
 4. Create a Deployment, which is used to manage Pods and ReplicaSets, and a Service, which defines a policy to access a set of Pods. The Deployment will contain a        MongoDB Pod, and will use the username and password from Secret as the database credentials. The Service defined is an internal service, which is inaccessible outside   of the Kubernetes cluster. It functions to enable other Pods within the cluster to communicate with the MongoDB Pod.
 
-   4. kubectl apply -f mongodb-deployment.yml to create the Service called mongodb-service, and Deployment called mongodb-deployment.
-   4. kubectl delete -f mongodb-deployment.yml to delete the Service and Deployment.
-   4. kubectl get svc -n mongodbdb-namespace to list all Services.
-   4. kubectl get deploy -n sa3iid-namespace to list all Deployments.
-   4. kubectl get rs -n sa3iid-namespace to list all Replicasets.
-   4. kubectl get po -n sa3iid-namespace to list all Pods.
-   4. kubectl get all -n sa3iid-namespace to list all Services, Deployments, Replicasets and Pods.
+   * kubectl apply -f mongodb-deployment.yml to create the Service called mongodb-service, and Deployment called mongodb-deployment.
+   * kubectl delete -f mongodb-deployment.yml to delete the Service and Deployment.
+   * kubectl get svc -n mongodbdb-namespace to list all Services.
+   * kubectl get deploy -n sa3iid-namespace to list all Deployments.
+   * kubectl get rs -n sa3iid-namespace to list all Replicasets.
+   * kubectl get po -n sa3iid-namespace to list all Pods.
+   * kubectl get all -n sa3iid-namespace to list all Services, Deployments, Replicasets and Pods.
 
  5. Create a ConfigMap, which is used to store non-confidential information in key-value pairs. The ConfigMap will contain the mongo database url.
 
-   5. kubectl apply -f sa3iid-configmap.yml to create the Configmap called mongodb-configmap.
-   5. kubectl delete -f sa3iid-configmap.yml to delete the Configmap.
-   5. kubectl get cm -n mongodb-namespace to list all Configmaps.
+   * kubectl apply -f sa3iid-configmap.yml to create the Configmap called mongodb-configmap.
+   * kubectl delete -f sa3iid-configmap.yml to delete the Configmap.
+   * kubectl get cm -n mongodb-namespace to list all Configmaps.
  
 6. Create another Deployment and Service. The Deployment will contain a >**_Mongo-Express_** Pod, which is a web-based interface to manage MongoDB databases. It will use the username and password from Secret, and the database url from ConfigMap to access the MongoDB internal Service defined in 4. The Service defined in 6 could be either an external or internal service. If it's an external service, it would allow external request to communicate with the Pods in 6., this Service will be an internal service, which would define the policy to access the Mongo-Express Pod.
 
-   6. kubectl apply -f mongoexpress.yml to create the Service called mongoexpress-service, and Deployment called mongo-express.
-   6. kubectl delete -f mongo-express.yml to delete the Service and Deployment.
+   * kubectl apply -f mongoexpress.yml to create the Service called mongoexpress-service, and Deployment called mongo-express.
+   * kubectl delete -f mongo-express.yml to delete the Service and Deployment.
  
 # To open your Application
  to get the ExternalIP of service:
